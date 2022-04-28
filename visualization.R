@@ -1,7 +1,7 @@
 library(plotrix)
 rm(list=ls())
 
-work_path <- '/Users/shangzh/Desktop/22Spring/MATH5470/re-generate'
+work_path <- './'
 setwd(work_path)
 
 data_path <- './empirical_result/'
