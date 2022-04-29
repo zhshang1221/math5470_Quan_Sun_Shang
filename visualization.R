@@ -12,13 +12,13 @@ monthly_data <- paste(data_path, 'monthly_oos.csv', sep="")
 monthly_data_frame <- read.csv(monthly_data, header=TRUE, sep=",",stringsAsFactors=FALSE)
 monthly_data <- as.matrix(t(monthly_data_frame[, 2:4]))
 
-colnames(monthly_data) <- c('OLS', 'OLS-3', 'PLS', 'PCR', 'GL', 'BoostTree')
+colnames(monthly_data) <- c('OLS', 'OLS-3', 'LASSO', 'PLS', 'PCR', 'GL', 'BoostTree')
 barplot(height=monthly_data, main = "Monthly Out-of-sample Prediction Performance", beside=TRUE, col= cm.colors(3), args.legend=c(35,28, "bottomright"))
 legend("bottomright", title="Features Selection", c('All', 'Top 1000', 'Bottom 1000'), x.intersp = 0.7,y.intersp = 1.0,text.width=6,cex=1, fill = cm.colors(3))
 
 # monthly data without OLS
-monthly_data <- as.matrix(t(monthly_data_frame[2:6,  2:4]))
-colnames(monthly_data) <- c('OLS-3', 'PLS', 'PCR', 'GL', 'BoostTree')
+monthly_data <- as.matrix(t(monthly_data_frame[2:7,  2:4]))
+colnames(monthly_data) <- c('OLS-3', 'LASSO', 'PLS', 'PCR', 'GL', 'BoostTree')
 barplot(height=monthly_data, main = "Monthly Out-of-sample Prediction Performance(without OLS)", beside=TRUE, col= cm.colors(3), args.legend=c(35,28, "bottomright"))
 
 # plot annual out-of-sample R_oos result
@@ -26,13 +26,13 @@ annual_data <- paste(data_path, 'annual_oos.csv', sep="")
 annual_data_frame <- read.csv(annual_data, header=TRUE, sep=",",stringsAsFactors=FALSE)
 annual_data <- as.matrix(t(annual_data_frame[, 2:4]))
 
-colnames(annual_data) <- c('OLS', 'OLS-3', 'PLS', 'PCR', 'GL', 'BoostTree')
+colnames(annual_data) <- c('OLS', 'OLS-3', 'LASSO', 'PLS', 'PCR', 'GL', 'BoostTree')
 barplot(height=annual_data, main = "Annual Out-of-sample Prediction Performance", beside=TRUE, col= cm.colors(3), args.legend=c(35,28, "bottomright"))
 legend("bottomright", title="Features Selection", c('All', 'Top 1000', 'Bottom 1000'), x.intersp = 0.7,y.intersp = 1.0,text.width=6,cex=1, fill = cm.colors(3))
 
 # annual data without OLS
-annual_data <- as.matrix(t(monthly_data_frame[2:6,  2:4]))
-colnames(annual_data) <- c('OLS-3', 'PLS', 'PCR', 'GL', 'BoostTree')
+annual_data <- as.matrix(t(monthly_data_frame[2:7, 2:4]))
+colnames(annual_data) <- c('OLS-3', 'LASSO', 'PLS', 'PCR', 'GL', 'BoostTree')
 barplot(height=annual_data, main = "Annual Out-of-sample Prediction Performance(without OLS)", beside=TRUE, col= cm.colors(3), args.legend=c(35,28, "bottomright"))
 
 # time-varying model complexity
